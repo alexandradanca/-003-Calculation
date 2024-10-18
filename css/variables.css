@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --w-container: 50vw;
+  --w-c-container: calc(var(--w-container) / 2);
+
+  --bgr-img: url(../images/dreamypixel.jpg);
+  --bgr-l-grad: linear-gradient(
+    from bottom left,
+    var(--bgr-l-grad-color-1),
+    var(--bgr-l-grad-color-2)
+  );
+  --bgr-calc: var(--bgr-calc-color);
+
+  --h-total: 10vh;
+  --h-calculation: 5vh;
+  --h-operators: 30vh;
+
+  --f-family: "Afacad Flux", sans-serif;
+  --p-size: 3vh;
+  --h-size: 6vh;
+  --btn-size: 3vh;
+}
+
+:root {
+  --bgr-l-grad-color-1: rgba(0, 4, 255, 0.2);
+  --bgr-l-grad-color-2: rgba(255, 255, 255, 0.1);
+  --bgr-calc-color: #4a779e;
+  --bgr-calc-color-light: #cae0ed;
+  --bgr-calc-color-light-hover: #cae0ed;
+  --txt-color: #cae0ed;
+}
+
+:root {
+  --flex-direction-container: row;
+}
+
+@media screen and (max-width: 576px) {
+  :root{
+    --w-container: 100vw;
+    --w-c-container: 100%;
+    --h-operators: auto;
+    --flex-direction-container: column;
+    --history-order: 1;
+    --bgr-calc-color: #cae0ed;
+    --bgr-calc-color-light: #4a779e;
+    --bgr-calc-color-light-hover: #5c8bb3;
+    --txt-color: var(--bgr-calc-color-light);
+  }
+}
+
+@media (577px <= width <= 1120px) {
+  :root{
+    --w-container: 90vw;
+  }
+}
+
+body {
+  height: 100vh;
+  font-family: var(--f-family);
+}
+
+h1 {
+  padding: 2vh 0;
+}

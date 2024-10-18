@@ -1,0 +1,34 @@
+@import url("./variables.css");
+
+@media screen and (max-width: 576px) {
+    main {
+        background-image: none;
+        background-color: var(--bgr-calc-color);
+    }
+    
+    .global-container {
+        height: 100%; 
+    }
+
+    .calculation-container{
+        padding-bottom: 2vh;
+    }
+
+    .total {
+        border-bottom: solid 0.1px var(--bgr-calc-color-light);
+    }
+
+    .history-container, .calculation-container {
+        border-radius: 0;
+    }
+
+    .history-container {
+        overflow-y:scroll;
+    }
+
+    .op-n-container > button {
+        color: var(--bgr-calc-color);
+        padding: 1.5vh;
+    }
+    
+}
