@@ -459,7 +459,7 @@ function xSquared(x) {
 
 total.addEventListener('mousemove', function(e) {
     // mouse position raported to container
-    const mouseX = e.clientX - total.getBoundingClientRect().right;
+    const mouseX = e.clientX - total.getBoundingClientRect().left;
     const displayWidth = total.clientWidth;
     const scrollWidth = total.scrollWidth;  
     // margin in %. Distance mouse from container margin
@@ -469,7 +469,7 @@ total.addEventListener('mousemove', function(e) {
 });
 
 calc.addEventListener('mousemove', function(e) {
-  const mouseX = e.clientX - calc.getBoundingClientRect().right;
+  const mouseX = e.clientX - calc.getBoundingClientRect().left;
   const displayWidth = calc.clientWidth;
   const scrollWidth = calc.scrollWidth;
   const scrollPosition = (mouseX / displayWidth) * (scrollWidth - displayWidth);

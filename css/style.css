@@ -68,7 +68,6 @@ main {
   box-sizing: border-box;
   overflow: hidden;
   white-space: nowrap;
-  direction: rtl;
 }
 
 .op-n-container {
