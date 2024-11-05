@@ -6,7 +6,6 @@ let calculation = "";
 let result = 0;
 let lastWasOp = false;
 let lastWasDecimal = false;
-let lastWasEqual = false;
 let lastTotal = 0;
 
 const root_theme = document.querySelector(":root");
@@ -59,6 +58,8 @@ window.addEventListener("DOMContentLoaded", () => {
     setInterval(bgrChange, 6000);
     bgrChange();
   }
+  calc.textContent = 0;
+  total.textContent = 0;
   calculator();
 });
 
@@ -69,18 +70,17 @@ function calculator() {
       const op = button.getAttribute("data-operator");
 
       if (firstIteration) {
-        if (nr !== "0") {
+        if (nr && nr !== "0") {
           calculation += nr;
           firstIteration = false;
         } else if (op === "-") {
           calculation += op;
           firstIteration = false;
+        } else if (button.id === "decimal") {
+          calculation = "0.";
+          firstIteration = false;
         }
       } else {
-        if (lastWasEqual && (nr || op)) {
-          calculation = lastTotal;
-          lastWasEqual = false;
-        } else {
           if (nr) {
             calculation += nr;
             lastWasOp = false;
@@ -111,10 +111,12 @@ function calculator() {
               lastWasDecimal = true;
             }
           } else if (button.id === "delete") {
-            if (calculation !== "") {
+            if (calculation.length !== 1) {
               calculation = calculation.slice(0, -1);
             } else {
+              calculation = calculation.slice(0, -1);
               firstIteration = true;
+              total.textContent = 0;
             }
           } else if (button.id === "clear") {
             displayHistory(
@@ -135,11 +137,13 @@ function calculator() {
             total.textContent = result;
             lastTotal = result;
             result = 0;
-            lastWasEqual = true;
           }
         }
-      }
-      calc.textContent = calculation;
+        if(calculation === ""){
+          calc.textContent = 0;
+        } else {
+          calc.textContent = calculation;
+        }
     });
   });
 }

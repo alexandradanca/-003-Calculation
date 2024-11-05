@@ -89,3 +89,7 @@ main {
 .op-n-container > button:hover {
   background: var(--bgr-calc-color-light-hover);
 }
+
+button[data-operator="+"] {
+  border-bottom-right-radius: 10px;
+}
