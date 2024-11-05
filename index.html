@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/responsive.css" rel="stylesheet" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="global-container">
+        <div class="history-container">
+          <h1>history</h1>
+          <div class="history"></div>
+        </div>
+        <div class="calculation-container">
+          <p class="total"></p>
+          <p class="calculation"></p>
+          <div class="op-n-container">
+            <button class="btn operator" data-operator="%">&#37;</button>
+            <button class="btn operator" data-operator="^">&#178;</button>
+            <button class="btn" id="clear">&#8705;</button>
+            <button class="btn" id="delete">&#8656;</button>
+            <button class="btn number" data-number="7">7</button>
+            <button class="btn number" data-number="8">8</button>
+            <button class="btn number" data-number="9">9</button>
+            <button class="btn operator" data-operator="/">&#247;</button>
+            <button class="btn number" data-number="4">4</button>
+            <button class="btn number" data-number="5">5</button>
+            <button class="btn number" data-number="6">6</button>
+            <button class="btn operator" data-operator="*">&#215;</button>
+            <button class="btn number" data-number="1">1</button>
+            <button class="btn number" data-number="2">2</button>
+            <button class="btn number" data-number="3">3</button>
+            <button class="btn operator" data-operator="-">&#8722;</button>
+            <button class="btn number" data-number="0">0</button>
+            <button class="btn" id="decimal">.</button>
+            <button class="btn" id="equal">=</button>
+            <button class="btn operator" data-operator="+">&#43;</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
