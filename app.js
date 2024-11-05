@@ -54,8 +54,8 @@ const bgrImage = [
 ];
 
 window.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth > 577) {
-    setInterval(bgrChange, 6000);
+  if (window.innerWidth > 577 && window.innerHeight > 440) {
+    setInterval(bgrChange, 8000);
     bgrChange();
   }
   calc.textContent = 0;
@@ -81,69 +81,81 @@ function calculator() {
           firstIteration = false;
         }
       } else {
-          if (nr) {
-            calculation += nr;
-            lastWasOp = false;
-          } else if (op) {
-            if (op === "^") {
-              if (!lastWasOp) {
-                calculation += "**";
-                lastWasOp = true;
-              }
-            } else {
-              if (!lastWasOp) {
-                calculation += op;
-                lastWasOp = true;
-              }
+        if (nr) {
+          calculation += nr;
+          lastWasOp = false;
+        } else if (op) {
+          if (op === "^") {
+            if (!lastWasOp) {
+              calculation += "**";
+              lastWasOp = true;
             }
-          } else if (button.id === "decimal") {
-            if (
-              calculation
-                .split(/[\+\-\*\/\^]+/)
-                .pop()
-                .includes(".")
-            ) {
-              lastWasDecimal = true;
+          } else if (
+            op &&
+            lastWasOp &&
+            calculation
+              .split(/[\+\-\*\/\^]+/)
+              .pop()
+              .includes("%")
+          ) {
+            calculation += op;
+          } else {
+            if (!lastWasOp) {
+              calculation += op;
+              lastWasOp = true;
             }
-
-            if (!lastWasDecimal) {
-              calculation += ".";
-              lastWasDecimal = true;
-            }
-          } else if (button.id === "delete") {
-            if (calculation.length !== 1) {
-              calculation = calculation.slice(0, -1);
-            } else {
-              calculation = calculation.slice(0, -1);
-              firstIteration = true;
-              total.textContent = 0;
-            }
-          } else if (button.id === "clear") {
-            displayHistory(
-              history,
-              calculation,
-              calculateResult(calculation, result)
-            );
-            calculation = "";
-            result = 0;
-            total.textContent = result;
-            firstIteration = true;
-          } else if (button.id === "equal") {
-            calculation = calculation.replace(
-              /(\d+)%/g,
-              (match, number) => `${number}*0.01`
-            );
-            result = calculateResult(calculation, result);
-            total.textContent = result;
-            lastTotal = result;
-            result = 0;
           }
+        } else if (button.id === "decimal") {
+          if (
+            calculation
+              .split(/[\+\-\*\/\^]+/)
+              .pop()
+              .includes(".")
+          ) {
+            lastWasDecimal = true;
+          }
+
+          if (!lastWasDecimal) {
+            calculation += ".";
+            lastWasDecimal = true;
+          }
+        } else if (button.id === "delete") {
+          if (calculation.length !== 1) {
+            calculation = calculation.slice(0, -1);
+            if(lastWasOp){
+              lastWasOp = false;
+            }
+          } else {
+            calculation = calculation.slice(0, -1);
+            firstIteration = true;
+            total.textContent = 0;
+          }
+        } else if (button.id === "clear") {
+          displayHistory(
+            history,
+            calculation,
+            calculateResult(calculation, result)
+          );
+          calculation = "";
+          result = 0;
+          total.textContent = result;
+          firstIteration = true;
+        } else if (button.id === "equal") {
+          calculation = calculation.replace(
+            /(\d+)%/g,
+            (match, number) => `${number}*0.01`
+          );
+          result = calculateResult(calculation, result);
+          total.textContent = result;
+          lastTotal = result;
+          result = 0;
         }
-        if(calculation === ""){
-          calc.textContent = 0;
-        } else {
-          calc.textContent = calculation;
-        }
+      }
+      if (calculation === "") {
+        calc.textContent = 0;
+      } else {
+        calc.textContent = calculation;
+      }
     });
   });
 }

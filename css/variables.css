@@ -16,6 +16,7 @@
   );
   --bgr-calc: var(--bgr-calc-color);
 
+  --h-g-container: auto;
   --h-total: 10vh;
   --h-calculation: 5vh;
   --h-operators: 30vh;
@@ -24,6 +25,8 @@
   --p-size: 3vh;
   --h-size: 6vh;
   --btn-size: 3vh;
+
+  --b-b-r-radius: 10px;
 }
 
 :root {
@@ -39,8 +42,18 @@
   --flex-direction-container: row;
 }
 
+body {
+  height: 100vh;
+  font-family: var(--f-family);
+}
+
+h1 {
+  padding: 2vh 0;
+}
+
+/***** SMARTHPHONE ********/
 @media screen and (max-width: 576px) {
-  :root{
+  :root {
     --w-container: 100vw;
     --w-c-container: 100%;
     --h-operators: auto;
@@ -50,20 +63,64 @@
     --bgr-calc-color-light: #4a779e;
     --bgr-calc-color-light-hover: #5c8bb3;
     --txt-color: var(--bgr-calc-color-light);
+    --b-b-r-radius: 0;
   }
 }
 
-@media (577px <= width <= 1120px) {
-  :root{
+@media (orientation: landscape) and (max-width: 960px) {
+  :root {
+    --h-g-container: 100vh;
+    --h-calculation: 7vh;
+    --h-operators: calc(
+      (var(--h-g-container)) - (var(--h-total)) - (var(--h-calculation))
+    );
+    --w-container: 100vw;
+    --w-c-container: 100%;
+    --p-size: 5vh;
+    --btn-size: 4vh;
+    --h-size: 7vh;
+    --b-b-r-radius: 0;
+    --bgr-calc-color: #cae0ed;
+    --bgr-calc-color-light: #4a779e;
+    --bgr-calc-color-light-hover: #5c8bb3;
+    --txt-color: var(--bgr-calc-color-light);
+  }
+
+  .calculation-container {
+    border-radius: 0;
+  }
+
+  main {
+    background-image: none;
+    background-color: var(--bgr-calc-color);
+  }
+  .total {
+    border-bottom: solid 0.1px var(--bgr-calc-color-light);
+  }
+
+  .calculation-container {
+    border-left: solid 0.1px var(--bgr-calc-color-light);
+  }
+
+  .history-container {
+    overflow-y: scroll;
+  }
+
+  .op-n-container > button {
+    color: var(--bgr-calc-color);
+    padding: 1.5vh;
+  }
+}
+
+/***** TABLETE ********/
+@media (min-width: 768px) and (max-width: 840px) and (min-height: 1024px) {
+  :root {
     --w-container: 90vw;
   }
 }
 
-body {
-  height: 100vh;
-  font-family: var(--f-family);
-}
-
-h1 {
-  padding: 2vh 0;
+@media (orientation: landscape) and (min-width: 1024px) and (max-width: 1280px) and (min-height: 200px) {
+  :root {
+    --w-container: 80vw;
+  }
 }
