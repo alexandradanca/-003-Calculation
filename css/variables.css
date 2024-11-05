@@ -70,15 +70,15 @@ h1 {
 @media (orientation: landscape) and (max-width: 960px) {
   :root {
     --h-g-container: 100vh;
-    --h-calculation: 7vh;
+    --h-calculation: 9vh;
     --h-operators: calc(
       (var(--h-g-container)) - (var(--h-total)) - (var(--h-calculation))
     );
     --w-container: 100vw;
     --w-c-container: 100%;
-    --p-size: 5vh;
-    --btn-size: 4vh;
-    --h-size: 7vh;
+    --p-size: 8vh;
+    --btn-size: 7vh;
+    --h-size: 9vh;
     --b-b-r-radius: 0;
     --bgr-calc-color: #cae0ed;
     --bgr-calc-color-light: #4a779e;
