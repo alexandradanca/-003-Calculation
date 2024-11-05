@@ -6,7 +6,6 @@ let calculation = "";
 let result = 0;
 let lastWasOp = false;
 let lastWasDecimal = false;
-let lastTotal = 0;
 
 const root_theme = document.querySelector(":root");
 let currentImgIdx = 0;
@@ -147,7 +146,6 @@ function calculator() {
           );
           result = calculateResult(calculation, result);
           total.textContent = result;
-          lastTotal = result;
           result = 0;
         }
       }
