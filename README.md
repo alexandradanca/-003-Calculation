@@ -1,5 +1,5 @@
 <h2 align="center">
-  <a href="https://alexandradanca.github.io/-004-Calculation/" target="_blank">Calculator</a>
+  🧮<a href="https://alexandradanca.github.io/-004-Calculation/" target="_blank">Calculator</a>
 </h2>
 
 <p>It's time to calculate some math homework :nerd_face:. Do your homework with the help of this calculator. :monocle_face: </br>It was created during front-end learning journey</p>
